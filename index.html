@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Profissional</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    header {
+      background-color: #2C3E50;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    header nav ul li {
+      list-style: none;
+      margin: 0 20px;
+    }
+
+    header nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #E74C3C;
+    }
+
+    .section {
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #E74C3C;
+    }
+
+    .info {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .projetos-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .projeto {
+      background-color: #ECF0F1;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      width: 30%;
+      margin: 10px 0;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .projeto:hover {
+      transform: translateY(-8px);
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 12px 24px;
+    }
+
+    .projeto img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .projeto h3 {
+      color: #2C3E50;
+      margin-top: 15px;
+    }
+
+    footer {
+      background-color: #2C3E50;
+      padding: 20px 0;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    .contato-info {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Responsividade */
+    @media (max-width: 1200px) {
+      .container {
+        width: 90%;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header nav ul {
+        flex-direction: column;
+      }
+
+      header nav ul li {
+        margin: 10px 0;
+      }
+
+      .projeto {
+        width: 45%;
+      }
+
+      .info, p, .contato-info {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .projetos-container {
+        justify-content: center;
+      }
+
+      .projeto {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .info, p, .contato-info {
+        font-size: 1rem;
+        padding: 0 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      header nav ul {
+        flex-direction: column;
+      }
+
+      header nav ul li {
+        margin: 5px 0;
+      }
+
+      .projeto {
+        width: 100%;
+        margin: 10px 0;
+      }
+
+      .info, p, .contato-info {
+        font-size: 0.9rem;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Meu Portfólio</h1>
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção Sobre -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <h2>Sobre Mim</h2>
+      <p class="info">Olá! Meu nome é Lázaro Gabriel Vieira Cardoso, sou estudante de Desenvolvimento de Sistemas e sou apaixonado por tecnologia. Tenho conhecimento intermediário em HTML, Python e CSS. Além disso, possuo certificados em várias soft skills, como criatividade, resolução de problemas, gestão de tempo e comunicação. Estou sempre em busca de novos desafios para aprimorar minhas habilidades e contribuir com soluções inovadoras e de valor para a sociedade.</p>
+    </div>
+  </section>
+
+  <!-- Seção Projetos -->
+  <section id="projetos" class="section">
+    <div class="container">
+      <h2>Projetos</h2>
+      <div class="projetos-container">
+        <div class="projeto">
+          <img src="..//Lázaro/logoCL.png" alt="Projeto CineList">
+          <h3>CineList</h3>
+          <p>Página de resenhas e análises de filmes, feita pela comunidade.</p>
+        </div>
+        <div class="projeto">
+          <img src="https://via.placeholder.com/300" alt="Projeto ChipShop">
+          <h3>ChipShop</h3>
+          <p>Venda de componentes para PC de forma personalizada, de acordo com a sua necessidade.</p>
+        </div>
+        <div class="projeto">
+          <img src="https://via.placeholder.com/300" alt="Projeto 3">
+          <h3>Projeto 3</h3>
+          <p>Descrição do projeto 3.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Contato -->
+  <section id="contato" class="section">
+    <div class="container">
+      <h2>Contato</h2>
+      <p class="contato-info">Você pode me contatar através das seguintes informações:</p>
+      <p class="contato-info">E-mail: <a href="mailto:lazimgamer007@gmail.com">lazimgamer007@gmail.com</a></p>
+      <p class="contato-info">Telefone: <a href="tel:+553898504294">(38) 9850-4294</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Lázaro Gabriel Vieira Cardoso - Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
