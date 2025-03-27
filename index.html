@@ -1,282 +1,545 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio Profissional</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Portfólio de Lázaro Gabriel - Full-Stack Developer</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
+        body {
+            background: linear-gradient(135deg, rgba(249, 249, 249, 0.8), rgba(230, 230, 250, 0.8)); /* Fundo suave */
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+            animation: smoke 10s infinite alternate; /* Animação de fumaça */
+        }
 
-    .container {
-      width: 80%;
-      margin: 0 auto;
-    }
-    
-    .imagem{
-      width: 30%; 
-      margin: 0 1%; 
-    }
-    header {
-      background-color: #2C3E50;
-      padding: 20px 0;
-      text-align: center;
-    }
+        /* Animação de fumaça */
+        @keyframes smoke {
+            0% {
+                transform: translateX(-10px);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateX(10px);
+                opacity: 1;
+            }
+        }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #fff;
-      letter-spacing: 1px;
-    }
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            
+            width: auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease; /* Suaviza qualquer alteração no cabeçalho */
+        }
 
-    header nav ul {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
+        header::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #00cc99, #009977); /* Linha colorida abaixo do header */
+        }
 
-    header nav ul li {
-      list-style: none;
-      margin: 0 20px;
-    }
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
 
-    header nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: color 0.3s;
-    }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #00cc99;
+            bottom: -4px;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
 
-    header nav ul li a:hover {
-      color: #E74C3C;
-    }
+        nav a:hover {
+            color: #00cc99;
+        }
 
-    .section {
-      padding: 60px 0;
-      text-align: center;
-    }
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
 
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      color: #E74C3C;
-    }
+        /* HERO (INÍCIO) */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 10%;
+            overflow: hidden;
+            z-index: 1;
+        }
 
-    .info {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: justify;
-    }
+        .hero-content {
+            text-align: right;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            animation: fadeIn 1.5s ease;
+            position: relative;
+            z-index: 2;
+        }
 
-    p {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #00cc99;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-    .projetos-container {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
+        .hero p {
+            font-size: 1.4rem;
+            color: #555;
+            margin-top: 10px;
+            max-width: 600px;
+            margin-left: auto;
+        }
 
-    .projeto {
-      background-color: #ECF0F1;
-      border-radius: 15px;
-      padding: 20px;
-      text-align: center;
-      width: 30%;
-      margin: 10px 0;
-      box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+        .btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: #00cc99;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0px 4px 15px rgba(0, 204, 153, 0.4);
+        }
 
-    .projeto:hover {
-      transform: translateY(-8px);
-      box-shadow: rgba(0, 0, 0, 0.3) 0px 12px 24px;
-    }
+        .btn:hover {
+            background-color: #009977;
+            transform: scale(1.05);
+        }
 
-    .projeto img {
-      width: 100%;
-      border-radius: 8px;
-    }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .projeto h3 {
-      color: #2C3E50;
-      margin-top: 15px;
-    }
+        /* Formas geométricas */
+        .circle {
+            position: absolute;
 
-    footer {
-      background-color: #2C3E50;
-      padding: 20px 0;
-      text-align: center;
-      color: #ffffff;
-    }
+            border: 2px solid #00cc99;
+            
+            animation: scaleUpDown 2s infinite alternate;
+        }
 
-    footer p {
-      font-size: 1rem;
-    }
+        /* Primeiro círculo */
+        .circle-left {
+            top: 1%; /* Posição para o lado esquerdo */
+            left: -10%;
+            width: 700px;
+            height: 700px; 
+            border-radius: 100%;
+            background-color: rgba(0, 228, 171, 0.185);
+        }
 
-    .contato-info {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
+        /* Segundo círculo */
+        .circle-right {
+            top: 1%; /* Posição para o lado direito */
+            right: -20%;
+            width: 230px;
+            height: 230px;
+            background-color: rgba(0, 228, 171, 0.185);
+        }
+        
+        /* Quadrados animados */
+        .square {
+            position: absolute;
+            border: 2px solid #00cc99;
+            background-color: rgba(0, 228, 171, 0.185);
+        }
 
-    /* Responsividade */
-    @media (max-width: 1200px) {
-      .container {
-        width: 90%;
-      }
+        /* Primeiro quadrado */
+        .square-1 {
+            top: 1%;
+            right: -13%; 
+            width: 400px;
+            height: 400px;
+            transform: rotate(45deg); /* Ângulo fixo de 45 graus */
+        }
 
-      header h1 {
-        font-size: 2rem;
-      }
 
-      header nav ul {
-        flex-direction: column;
-      }
 
-      header nav ul li {
-        margin: 10px 0;
-      }
+        /* Terceiro quadrado */
+        .square-3 {
+            top: 60%;
+            right: -5%;
+            width: 250px;
+            height:250px;
+            transform: rotate(-60deg); /* Ângulo fixo de -60 graus (anti-horário) */
+        }
 
-      .projeto {
-        width: 45%;
-      }
+        @keyframes scaleUpDown {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
 
-      .info, p, .contato-info {
-        font-size: 1rem;
-      }
-    }
+     /* SOBRE */
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
+        .about {
+            padding: 100px 10%;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: space-between;
+        }
 
-      .projetos-container {
-        justify-content: center;
-      }
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            justify-content: flex-start; /* Alinha ao início da seção */
+            max-width: 1200px;
+            width: 100%;
+        }
 
-      .projeto {
-        width: 100%;
-        margin-bottom: 20px;
-      }
+        .text {
+            text-align: left; /* Alinha o texto à esquerda */
+        }
 
-      .info, p, .contato-info {
-        font-size: 1rem;
-        padding: 0 15px;
-      }
-    }
+        .about h2 {
+            font-size: 2.5rem;
+            color: #00cc99;
+            margin-bottom: 20px;
+            position: relative;
+        }
 
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
+        .container {
+            display: flex;
+            align-items: center; /* Alinha os elementos verticalmente */
+            gap: 50px; /* Espaçamento fixo entre o texto e a imagem */
+            padding: 100px 10%;
+            background-color: #fafafa;
+        }
+        
 
-      header nav ul {
-        flex-direction: column;
-      }
 
-      header nav ul li {
-        margin: 5px 0;
-      }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
 
-      .projeto {
-        width: 100%;
-        margin: 10px 0;
-      }
+        .skill-tags span {
+            background-color: #00dfa7;
+            color: #333;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
 
-      .info, p, .contato-info {
-        font-size: 0.9rem;
-        padding: 0 10px;
-      }
-    }
-  </style>
+        .skill-tags span:hover {
+            background-color: #00c392;
+            color: #333 ;
+            transform: scale(1.15);
+        }
+
+
+        .about p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        /* Classe para fixar o cabeçalho */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.9); /* Aumenta a opacidade para o fundo do cabeçalho */
+        }
+        /* IMAGEM DE PERFIL */
+        .profile-image {
+            flex-shrink: 0;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 15px 15px rgba(0, 228, 171, 0.323);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+            /* Seção de Projetos */
+        .projetos-section {
+            padding: 80px 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Título estilizado com o azul claro */
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgb(0, 228, 171); /* Azul claro */
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Flexbox para alinhar horizontalmente */
+        .projetos-flex {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Card de Projeto */
+        .projeto-card {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 228, 171, 0.323);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px;
+        }
+
+        .projeto-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .projetos-grid{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .projeto-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .projeto-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .projeto-info p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Hover bonito */
+        .projeto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 228, 171, 0.55);
+        }
+
+        /* Animação de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .projeto-card {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Delay para cada card aparecer de forma progressiva */
+        .projeto-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        .projeto-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        .projeto-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .container {
+                flex-direction: column; /* Muda para coluna em telas menores */
+                gap: 20px;
+                text-align: center;
+            }
+
+                }
+
+
+
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <h1>Meu Portfólio</h1>
-      <nav>
-        <ul>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header id="header">
+        <div>Lázaro Gabriel</div>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
 
-  <!-- Seção Sobre -->
-  <section id="sobre" class="section">
-    <div class="container">
-      <h2>Sobre Mim</h2>
-      <p class="info">Olá! Meu nome é Lázaro Gabriel Vieira Cardoso, sou estudante de Desenvolvimento de Sistemas e sou apaixonado por tecnologia. Tenho conhecimento intermediário em HTML, Python e CSS. Além disso, possuo certificados em várias soft skills, como criatividade, resolução de problemas, gestão de tempo e comunicação. Estou sempre em busca de novos desafios para aprimorar minhas habilidades e contribuir com soluções inovadoras e de valor para a sociedade.</p>
+<!-- INÍCIO -->
+<section id="inicio" class="hero">
+    <div class="hero-content">
+        <h1>Lázaro Gabriel</h1>
+        <p>Desenvolvedor Full-Stack | Criando sistemas modernos e eficientes com foco em performance e usabilidade</p>
+        <button class="btn">Ver Projetos</button>
     </div>
-  </section>
 
-  <!-- Seção Projetos -->
-  <section id="projetos" class="section">
+    <!-- Dois círculos animados -->
+    <div class="circle circle-left"></div>
+    <div class="circle circle-right"></div>
+
+    <!-- Dois quadrados animados -->
+    <div class="square square-1"></div>
+    <div class="square square-3"></div>
+</section>
+
+<!-- SOBRE MIM -->
+<section id="sobre" class="about">
     <div class="container">
-      <h2>Projetos</h2>
-      <div class="projetos-container">
-        <div class="projeto">
-          <img class="imagem" src="./logoCL.png" alt="Projeto CineList">
-          <h3>CineList</h3>
-          <p>Página de resenhas e análises de filmes, feita pela comunidade.</p>
+        <div class="text">
+            <h2>Sobre Mim</h2>
+            <p>
+                Sou Lázaro Gabriel, desenvolvedor full-stack apaixonado por tecnologia e inovação. 
+                Sempre em busca de novos desafios para criar soluções criativas e eficientes, combinando performance e usabilidade.
+            </p>  
+
+            <!-- Envolvendo os botões em uma div -->
+            <div class="skills-wrapper">
+                <div class="skill-tags">
+                    <span><i class="fab fa-html5"></i> HTML5</span>
+                    <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span><i class="fab fa-js"></i> JavaScript</span>
+                    <span><i class="fab fa-python"></i> Python</span>
+                    <span><i class="fas fa-database"></i> PostgreSQL</span>
+                    <span><i class="fab fa-git-alt"></i> Git</span>
+                </div>
+            </div>
         </div>
-        <div class="projeto">
-          <img class="imagem" src="./logoCS.png" alt="Projeto ChipShop">
-          <h3>ChipShop</h3>
-          <p>Venda de componentes para PC de forma personalizada, de acordo com a sua necessidade.</p>
-        </div>
-        <div class="projeto">
-          <img class="imagem" src="https://via.placeholder.com/300" alt="Projeto 3">
-          <h3>Projeto 3</h3>
-          <p>Descrição do projeto 3.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Seção Contato -->
-  <section id="contato" class="section">
-    <div class="container">
-      <h2>Contato</h2>
-      <p class="contato-info">Você pode me contatar através das seguintes informações:</p>
-      <p class="contato-info">E-mail: <a href="mailto:lazimgamer007@gmail.com">lazimgamer007@gmail.com</a></p>
-      <p class="contato-info">Telefone: <a href="tel:+553898504294">(38) 9850-4294</a></p>
+        <!-- Imagem de perfil -->
+        <div class="profile-image">
+            <img src="./EU.webp" alt="">
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- Footer -->
-  <footer>
+<section id="projetos" class="section projetos-section">
     <div class="container">
-      <p>&copy; 2025 Lázaro Gabriel Vieira Cardoso - Todos os direitos reservados.</p>
+        <h2 class="section-title">Meus Projetos</h2>
+        <div class="projetos-grid">
+            <div class="projeto-card">
+                <img src="img/projeto1.jpg" alt="Projeto 1">
+                <div class="projeto-info">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição breve sobre o projeto. O que ele faz, tecnologias usadas, etc.</p>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <img src="img/projeto2.jpg" alt="Projeto 2">
+                <div class="projeto-info">
+                    <h3>Projeto 2</h3>
+                    <p>Descrição breve sobre o projeto. O que ele faz, tecnologias usadas, etc.</p>
+                </div>
+            </div>
+
+            <div class="projeto-card">
+                <img src="img/projeto3.jpg" alt="Projeto 3">
+                <div class="projeto-info">
+                    <h3>Projeto 3</h3>
+                    <p>Descrição breve sobre o projeto. O que ele faz, tecnologias usadas, etc.</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </footer>
+</section>
+
+
 
 </body>
 </html>
