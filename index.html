@@ -20,9 +20,10 @@
             background: linear-gradient(135deg, rgba(249, 249, 249, 0.8), rgba(230, 230, 250, 0.8)); /* Fundo suave */
             color: #333;
             overflow-x: hidden;
+            z-index: 0; /* Coloca o body atrás de tudo */
             position: relative;
-            animation: smoke 10s infinite alternate; /* Animação de fumaça */
         }
+
 
         /* Animação de fumaça */
         @keyframes smoke {
@@ -111,7 +112,7 @@
             margin-left: auto;
             animation: fadeIn 1.5s ease;
             position: relative;
-            z-index: 2;
+            z-index: 10;
         }
 
         .hero h1 {
@@ -190,6 +191,11 @@
             position: absolute;
             border: 2px solid #00cc99;
             background-color: rgba(0, 228, 171, 0.185);
+        }
+
+        .circle, .square {
+            position: absolute;
+            z-index: -1; /* Coloca as formas geométricas atrás do conteúdo */
         }
 
         /* Primeiro quadrado */
@@ -423,6 +429,93 @@
             animation-delay: 0.6s;
         }
 
+        /* Contato */
+        #contact {
+            padding: 80px 10%;
+            background-color: #f9f9f9;
+        }
+
+        #contact .section-title {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        #contact .section-title span {
+            color: var(--primary-color);
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            background-color: #ffffff;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        .contact-item:hover a {
+            color: var(--primary-color);
+        }
+
+      /* Rodapé */
+        footer {
+            background-color: var(--secondary-color);
+            padding: 20px 10%;
+            color: white;
+            text-align: center;
+            position: relative; /* Mantém o rodapé visível sem interferências */
+            z-index: 5; /* Coloca o rodapé na frente de outros elementos */
+            margin-top: 40px; /* Espaçamento em relação à seção anterior */
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
 
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
@@ -442,7 +535,11 @@
                 gap: 20px;
                 text-align: center;
             }
-
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
                 }
 
 
@@ -513,33 +610,68 @@
         <h2 class="section-title">Meus Projetos</h2>
         <div class="projetos-grid">
             <div class="projeto-card">
-                <img src="img/projeto1.jpg" alt="Projeto 1">
+                <img src="./logoCL.png" alt="Projeto 1">
                 <div class="projeto-info">
-                    <h3>Projeto 1</h3>
-                    <p>Descrição breve sobre o projeto. O que ele faz, tecnologias usadas, etc.</p>
+                    <h3>CineList</h3>
+                    <p>Um site simples e bonito feito apenas em HTML e CSS, nele é possivel ver analises e resenhas de filmes, comentado pela propria comunidade</p>
                 </div>
             </div>
 
             <div class="projeto-card">
-                <img src="img/projeto2.jpg" alt="Projeto 2">
+                <img src="./logoCS.png" alt="Projeto 2">
                 <div class="projeto-info">
-                    <h3>Projeto 2</h3>
-                    <p>Descrição breve sobre o projeto. O que ele faz, tecnologias usadas, etc.</p>
+                    <h3>ChipShop</h3>
+                    <p>Este site de vendas de Hardwares busca facilitar sua compra, mostrando peças compativeis entre si e o que seria a melhor escolha para você</p>
                 </div>
             </div>
 
             <div class="projeto-card">
-                <img src="img/projeto3.jpg" alt="Projeto 3">
+                <img src="./EB.png" alt="Projeto 3">
                 <div class="projeto-info">
-                    <h3>Projeto 3</h3>
-                    <p>Descrição breve sobre o projeto. O que ele faz, tecnologias usadas, etc.</p>
+                    <h3>Em breve</h3>
+                    <p>Em breve</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Contato -->
+<section id="contact">
+    <h2 class="section-title">Entre em <span>Contato</span></h2>
+    <div class="contact-container">
+        <div class="contact-item">
+            <a href="mailto:lazimgamer007@gmail.com" target="_blank">
+                <i class="fas fa-envelope"></i>
+                lazimgamer007@gmail.com
+            </a>
+        </div>
+        <div class="contact-item">
+            <a href="tel:+5538988504294" target="_blank">
+                <i class="fas fa-phone"></i>
+                +55 (38) 9 9850-4294
+            </a>
+        </div>
+        <div class="contact-item">
+            <a href="https://github.com/Lazaro9850" target="_blank">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+        </div>
+    </div>
+</section>
 
+<!-- Rodapé -->
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 Lázaro Gabriel. Todos os direitos reservados.</p>
+        <div class="footer-links">
+            <a href="mailto:lazimgamer007@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+5538988504294" target="_blank"><i class="fas fa-phone"></i></a>
+            <a href="https://github.com/Lazaro9850" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
