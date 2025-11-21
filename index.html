@@ -578,6 +578,25 @@
         }
 
 
+        /* Impedir seleção nos badges */
+        .skill-tags span {
+            user-select: none;
+        }
+
+        /* Impedir seleção nos ícones do footer */
+        .footer-links a,
+        .footer-links a i {
+            user-select: none;
+        }
+
+        /* Impedir seleção na seção de contato */
+        .contact-item,
+        .contact-item i,
+        .contact-item a {
+            user-select: none;
+        }
+
+
         /* RESPONSIVIDADE */
         @media (max-width: 768px) {
 
