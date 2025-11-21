@@ -597,8 +597,34 @@
         }
 
 
-        .contact-item a,
+        /* Footer: deixar ícones lado a lado */
+        .footer-links {
+            display: flex;
+            gap: 18px;        /* espaço entre os ícones */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Ícones clicáveis, mas sem width 100% */
         .footer-links a {
+            display: inline-flex;  /* torna o link clicável sem quebrar layout */
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: inherit;
+            user-select: none;
+        }
+
+        .footer-links a:hover {
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        /* Manter NÃO SELECIONÁVEL */
+        .footer-links a i {
+            user-select: none;
+        }
+
+        .contact-item a {
             display: block;       /* Agora o link é clicável no bloco inteiro */
             width: 100%;          /* O botão inteiro vira área de clique real */
             padding: 12px 16px;
