@@ -143,7 +143,9 @@
             overflow: hidden;
             z-index: 1;
         }
-
+        .hero-content {
+            text-align: justify;
+        }
         .hero-content {
             text-align: right;
             width: 100%;
@@ -278,48 +280,48 @@
 
         .about {
             padding: 100px 10%;
-            background-color: #fafafa;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            background: none;
+            background-color: transparent;
         }
 
-        .about-content {
+        .container {
             display: flex;
-            gap: 50px;
             align-items: center;
-            justify-content: flex-start;
-            /* Alinha ao início da seção */
+            gap: 40px;
             max-width: 1200px;
-            width: 100%;
+            
         }
 
         .text {
-            text-align: left;
-            /* Alinha o texto à esquerda */
+            flex: 1;
+            text-align: justify; /* AQUI fica justificado */
         }
+
+        .profile-image {
+            flex-shrink: 0;
+        }
+
 
         .about h2 {
             font-size: 2.5rem;
             color: #00cc99;
             margin-bottom: 20px;
             position: relative;
+            text-align: center;
         }
 
-        .container {
-            display: flex;
-            align-items: center;
-            /* Alinha os elementos verticalmente */
-            gap: 50px;
-            /* Espaçamento fixo entre o texto e a imagem */
-            padding: 100px 10%;
-            background-color: #fafafa;
-        }
+
 
 
 
         .skill-tags {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
+            padding-left: 20px;
+            padding-bottom: 50px;
             gap: 10px;
         }
 
@@ -347,6 +349,7 @@
         .about p {
             font-size: 1.2rem;
             color: #555;
+            padding: 15px;
             margin-bottom: 30px;
             max-width: 600px;
         }
@@ -649,117 +652,117 @@
 
 
         /* RESPONSIVIDADE */
-        @media (max-width: 768px) {
+    @media (max-width: 768px) {
 
-            #header.hide {
-                transform: translateY(-100%);
-            }
-
-            .about-content {
-                flex-direction: column;
-                gap: 30px;
-                text-align: center;
-            }
-
-            .profile-image {
-                width: 200px;
-                height: 200px;
-            }
-
-            .container {
-                flex-direction: column;
-                /* Muda para coluna em telas menores */
-                gap: 20px;
-                text-align: center;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 10px;
-            }
+        #header.hide {
+            transform: translateY(-100%);
         }
 
-        @media (max-width: 1200px) {
-
-            /* Reduz o tamanho do primeiro círculo */
-            .circle-left {
-                width: 500px;
-                height: 500px;
-            }
-
-            /* Reduz o tamanho do segundo círculo */
-            .circle-right {
-                width: 180px;
-                height: 180px;
-            }
+        .about-content {
+            flex-direction: column;
+            gap: 30px;
+            text-align: center;
         }
 
-        @media (max-width: 768px) {
-
-            /* Reduz o tamanho do primeiro círculo */
-            .circle-left {
-                width: 400px;
-                display: none;
-                height: 400px;
-            }
-
-            /* Reduz o tamanho do segundo círculo */
-            .circle-right {
-                width: 150px;
-                display: none;
-                height: 150px;
-            }
-
-            /* Esconde os quadrados em telas menores */
-            .square {
-                display: none;
-            }
+        .profile-image {
+            width: 200px;
+            height: 200px;
         }
 
-        @media (max-width: 480px) {
-
-            /* Reduz ainda mais o tamanho dos círculos */
-            .circle-left {
-                width: 300px;
-                display: none;
-                height: 300px;
-            }
-
-            .circle-right {
-                width: 120px;
-                display: none;
-                height: 120px;
-            }
-
-            /* Esconde os quadrados em telas menores */
-            .square {
-                display: none;
-            }
+        .container {
+            flex-direction: column;
+            /* Muda para coluna em telas menores */
+            gap: 20px;
+            text-align: center;
         }
 
-
-        /* HEADER RESPONSIVO – AJUSTE PARA CELULAR */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-                padding: 15px;
-            }
-
-            nav {
-                display: flex;
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav a {
-                margin: 0;
-                /* remove o excesso de margem lateral */
-                font-size: 15px;
-            }
+        .footer-content {
+            flex-direction: column;
+            gap: 10px;
         }
+    }
+
+    @media (max-width: 1200px) {
+
+        /* Reduz o tamanho do primeiro círculo */
+        .circle-left {
+            width: 500px;
+            height: 500px;
+        }
+
+        /* Reduz o tamanho do segundo círculo */
+        .circle-right {
+            width: 180px;
+            height: 180px;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        /* Reduz o tamanho do primeiro círculo */
+        .circle-left {
+            width: 400px;
+            display: none;
+            height: 400px;
+        }
+
+        /* Reduz o tamanho do segundo círculo */
+        .circle-right {
+            width: 150px;
+            display: none;
+            height: 150px;
+        }
+
+        /* Esconde os quadrados em telas menores */
+        .square {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        /* Reduz ainda mais o tamanho dos círculos */
+        .circle-left {
+            width: 300px;
+            display: none;
+            height: 300px;
+        }
+
+        .circle-right {
+            width: 120px;
+            display: none;
+            height: 120px;
+        }
+
+        /* Esconde os quadrados em telas menores */
+        .square {
+            display: none;
+        }
+    }
+
+
+    /* HEADER RESPONSIVO – AJUSTE PARA CELULAR */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            text-align: center;
+            gap: 10px;
+            padding: 15px;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            margin: 0;
+            /* remove o excesso de margem lateral */
+            font-size: 15px;
+        }
+    }
     </style>
 </head>
 
@@ -849,12 +852,12 @@
     <section id="contact">
         <h2 class="section-title">Entre em <span>Contato</span></h2>
         <div class="contact-container">
+
             <div class="contact-item">
-                <a href="mailto:lazaropessoal9850@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                    lazaropessoal9850@gmail.com
-                </a>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:lazaropessoal9850@gmail.com">lazaropessoal9850@gmail.com</a>
             </div>
+
             <div class="contact-item">
                 <a href="https://wa.me/553898504294?text=Ol%C3%A1%2C%20vim%20do%20seu%20site!" target="_blank">
                     <i class="fas fa-phone"></i>
